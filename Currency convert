@@ -1,0 +1,16 @@
+fun convertUSDToPHP(amountUSD: Double): Double {
+    if (amountUSD < 0) {
+        throw IllegalArgumentException("Amount must be a positive value.")
+    }
+
+    val exchangeRate = 56.69 // 1 USD to PHP exchange rate
+
+    return amountUSD * exchangeRate
+}
+
+fun main() {
+    val amountInUSD = 1.0 // 100 US dollars
+    val equivalentAmountInPHP = convertUSDToPHP(amountInUSD)
+
+    println("$amountInUSD USD is equal to $equivalentAmountInPHP PHP")
+}
