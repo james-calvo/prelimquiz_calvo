@@ -1,0 +1,41 @@
+fun convertTemperature(
+    value: Double,
+    fromUnit: String,
+    toUnit: String
+): Double {
+    when (fromUnit) {
+        "Fahrenheit" -> {
+            return when (toUnit) {
+                "Celsius" -> (value - 32) * 5 / 9
+                "Kelvin" -> (value - 32) * 5 / 9 + 273.15
+                else -> value
+            }
+        }
+        "Celsius" -> {
+            return when (toUnit) {
+                "Fahrenheit" -> (value * 9 / 5) + 32
+                "Kelvin" -> value + 273.15
+                else -> value
+            }
+        }
+        "Kelvin" -> {
+            return when (toUnit) {
+                "Fahrenheit" -> (value - 273.15) * 9 / 5 + 32
+                "Celsius" -> value - 273.15
+                else -> value
+            }
+        }
+        else -> return value
+    }
+}
+
+fun main() {
+    val temperature = 25.0 // Replace with the temperature value you want to convert
+    val fromUnit = "Celsius" // Replace with the source unit (e.g., "Celsius", "Fahrenheit", "Kelvin")
+    val toUnit = "Fahrenheit" // Replace with the target unit (e.g., "Celsius", "Fahrenheit", "Kelvin")
+
+    val convertedTemperature = convertTemperature(temperature, fromUnit, toUnit)
+
+    println("$temperature $fromUnit is equal to $convertedTemperature $toUnit")
+}
+
